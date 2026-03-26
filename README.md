@@ -1,0 +1,2 @@
+# NewsApp---React-Latest-Project
+NewsApp is a modern and responsive news application built with React. It fetches real-time news from an API and displays the latest headlines across different categories such as technology, business, sports, and entertainment. The app features a smooth user interface, fast performance, and a dynamic loading system to enhance user experience.
