@@ -1,4 +1,4 @@
-import React, {useEffect, useState } from "react";
+import React, {useCallback, useEffect, useState } from "react";
 import NewsItem from "./NewsItem";
 import Spinner from "./Spinner";
 import PropTypes from 'prop-types'
@@ -12,8 +12,8 @@ const News = (props) =>  {
   const [loadingMore, setLoadingMore] = useState(false);
 
 
-  const Update = async () => {
-    props.setProgress(10)
+  const Update = useCallback( async () =>{
+     props.setProgress(10)
     let Url = `https://newsapi.org/v2/top-headlines?category=${props.category}&country=${props.country}&page=${page}&apiKey=de9457df364a4078b20a2f3ab46262a5&pageSize=7`;
               props.setProgress(30)
 
@@ -26,7 +26,8 @@ const News = (props) =>  {
      settotalResults(parseData.totalResults);
      setLoading(false)
       props.setProgress(100)
-  }
+  } , [page , props]) 
+   
 
   useEffect(() => {
     Update();
